@@ -7,12 +7,14 @@ import HomePage from './pages/homepage/HomePage';
 import ShopPage from './pages/shop/Shop';
 import SignInSignUp from './pages/signin-signup/SignInSignUp';
 import Header from './components/header/Header';
+import CheckoutPage from './pages/checkout/CheckoutPage';
 
 import { setCurrentUser } from './redux/user/userActions';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { selectCurrentUser } from './redux/user/userSelectors';
+// import { selectCollectionsForPreview } from './redux/shop/shopSelectors';
+
 import './App.css';
-import CheckoutPage from './pages/checkout/CheckoutPage';
 
 class App extends Component {
 	unsubscribeFromAuth = null;
@@ -33,6 +35,10 @@ class App extends Component {
 				setCurrentUser(userAuth);
 			}
 		});
+		// addCollectionAndDocuments(
+		// 	'collections',
+		// 	collectionsArray.map(({ title, items }) => ({ title, items }))
+		// );
 	}
 
 	componentWillUnmount() {
